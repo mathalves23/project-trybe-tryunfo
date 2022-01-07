@@ -41,7 +41,7 @@ class Form extends React.Component {
           Super Trybe Trunfo
         </label>
         {/* <input type="button" value="Salvar" data-testid="save-button" id="submit" /> */}
-        <button type="submit" data-testid="save-button">Registrar</button>
+        <button type="submit" data-testid="save-button" id="salvar">Salvar</button>
         {/* Source: https://pt-br.reactjs.org/docs/handling-events.html */}
       </form>
     );
