@@ -111,6 +111,7 @@ class Form extends React.Component {
               onChange={ onInputChange }
             />
           </label>
+          {/* Source: https://pt-br.reactjs.org/docs/handling-events.html */}
           <button
             type="button"
             data-testid="save-button"
@@ -119,7 +120,6 @@ class Form extends React.Component {
           >
             Salvar
           </button>
-          {/* Source: https://pt-br.reactjs.org/docs/handling-events.html */}
         </form>
       </div>
     );
