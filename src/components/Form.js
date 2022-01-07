@@ -16,106 +16,104 @@ class Form extends React.Component {
       isSaveButtonDisabled,
       onInputChange,
       onSaveButtonClick } = this.props;
+
     return (
       // Source: https://pt-br.reactjs.org/docs/forms.html
       <div>
         <form>
-          <label htmlFor="name">
+          <label htmlFor="name-input">
             Nome:
             <input
               type="text"
               name="name"
               data-testid="name-input"
-              id="name"
+              id="name-input"
               value={ cardName }
               onChange={ onInputChange }
             />
           </label>
-          <label htmlFor="desc">
+          <label htmlFor="description-input">
             Descrição:
-            <input
-              type="textarea"
-              name="desc"
+            <textarea
+              name="descricao"
               data-testid="description-input"
-              id="desc"
+              id="description-input"
               value={ cardDescription }
               onChange={ onInputChange }
             />
           </label>
-          <label htmlFor="attr01">
+          <label htmlFor="attr1-input">
             Attr01:
             <input
               type="number"
               name="attr01"
               data-testid="attr1-input"
-              id="attr01"
+              id="attr1-input"
               value={ cardAttr1 }
               onChange={ onInputChange }
             />
           </label>
-          <label htmlFor="attr02">
+          <label htmlFor="attr2-input">
             Attr02:
             <input
               type="number"
               name="attr02"
               data-testid="attr2-input"
-              id="attr02"
+              id="attr2-input"
               value={ cardAttr2 }
               onChange={ onInputChange }
             />
           </label>
-          <label htmlFor="attr03">
+          <label htmlFor="attr3-input">
             Attr03:
             <input
               type="number"
               name="attr03"
               data-testid="attr3-input"
-              id="attr03"
+              id="attr3-input"
               value={ cardAttr3 }
               onChange={ onInputChange }
             />
           </label>
-          <label htmlFor="name">
+          <label htmlFor="image-input">
             Imagem:
             <input
               type="text"
               name="image"
               data-testid="image-input"
-              id="image"
+              id="image-input"
               value={ cardImage }
               onChange={ onInputChange }
             />
           </label>
-          <label htmlFor="raridade">
+          <label htmlFor="rare-input">
             Raridade
             <select
               data-testid="rare-input"
-              id="raridade"
+              id="rare-input"
               name="raridade"
               value={ cardRare }
               onChange={ onInputChange }
             >
               <option value="normal">normal</option>
               <option value="raro">raro</option>
-              <option selected value="muito-raro">muito raro</option>
+              <option value="muito raro">muito raro</option>
             </select>
           </label>
-          <label htmlFor="check">
+          <label htmlFor="trunfo-input">
+            Super Trybe Trunfo
             <input
               name="check"
               type="checkbox"
-              id="check"
+              id="trunfo-input"
               data-testid="trunfo-input"
               checked={ cardTrunfo }
               onChange={ onInputChange }
             />
-            Super Trybe Trunfo
           </label>
-          {/* <input type="button" value="Salvar" data-testid="save-button" id="submit" /> */}
           <button
-            type="submit"
+            type="button"
             data-testid="save-button"
-            id="salvar"
             disabled={ isSaveButtonDisabled }
             onClick={ onSaveButtonClick }
           >
