@@ -1,0 +1,21 @@
+body {
+  background-color: yellow;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 30px;
+  padding: 20px;
+  background-color: red;
+}
+
+h1 {
+  text-align: center;
+}
+
+#name, #desc, #attr01, #attr02, #attr03, #image, #select, #check, #submit {
+  margin-top: 30px;
+}

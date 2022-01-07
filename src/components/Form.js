@@ -23,7 +23,7 @@ class Form extends React.Component {
         </label>
         <label htmlFor="attr03">
           Attr03:
-          <input type="number" name="attr03" data-testid="attr2-input" id="attr03" />
+          <input type="number" name="attr03" data-testid="attr3-input" id="attr03" />
         </label>
         <label htmlFor="name">
           Imagem:
@@ -40,7 +40,9 @@ class Form extends React.Component {
           <input name="check" type="checkbox" id="check" data-testid="trunfo-input" />
           Super Trybe Trunfo
         </label>
-        <input type="submit" value="Salvar" data-testid="save-button" />
+        {/* <input type="button" value="Salvar" data-testid="save-button" id="submit" /> */}
+        <button type="submit" data-testid="save-button">Registrar</button>
+        {/* Source: https://pt-br.reactjs.org/docs/handling-events.html */}
       </form>
     );
   }
