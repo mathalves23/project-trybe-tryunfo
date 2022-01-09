@@ -126,7 +126,8 @@ class Form extends React.Component {
   }
 }
 
-Form.propTypes = { cardName: PropTypes.string.isRequired,
+Form.propTypes = {
+  cardName: PropTypes.string.isRequired,
   cardDescription: PropTypes.string.isRequired,
   cardAttr1: PropTypes.string.isRequired,
   cardAttr2: PropTypes.string.isRequired,
