@@ -24,13 +24,21 @@ class App extends React.Component {
     };
   }
 
-  handleChange = (event) => {
+  // Sem desestruturar:
+  // handleChange = (event) => {
+  //   this.setState({
+  //     [event.target.name]: event.target.value,
+  //   }, this.formValidation);
+  // }
+
+  // Desestruturado:
+  handleChange = ({ target: { name, value } }) => {
     this.setState({
-      [event.target.name]: event.target.value,
-    }, this.handleValidar);
+      [name]: value,
+    }, this.formValidation);
   }
 
-  handleValidar = () => {
+  formValidation = () => {
     const sumOfAttr = 210;
     const maxAttr = 90;
     const {
@@ -43,7 +51,7 @@ class App extends React.Component {
       cardRare,
     } = this.state;
 
-    const validar = (
+    const validation = (
       cardName !== ''
       && cardDescription !== ''
       && cardImage !== ''
@@ -57,7 +65,7 @@ class App extends React.Component {
       && Number(cardAttr1) + Number(cardAttr2) + Number(cardAttr3) <= sumOfAttr
     );
 
-    this.setState({ isSaveButtonDisabled: !validar });
+    this.setState({ isSaveButtonDisabled: !validation });
   }
 
   render() {
