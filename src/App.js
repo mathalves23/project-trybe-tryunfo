@@ -27,12 +27,12 @@ class App extends React.Component {
   handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value,
-    }, this.handleValidate);
+    }, this.handleValidar);
   }
 
-  handleValidate = () => {
-    const maxInput = 90;
-    const max = 210;
+  handleValidar = () => {
+    const sumOfAttr = 210;
+    const maxAttr = 90;
     const {
       cardName,
       cardDescription,
@@ -43,7 +43,7 @@ class App extends React.Component {
       cardRare,
     } = this.state;
 
-    const validation = (
+    const validar = (
       cardName !== ''
       && cardDescription !== ''
       && cardImage !== ''
@@ -51,13 +51,13 @@ class App extends React.Component {
       && cardAttr1 !== ''
       && cardAttr2 !== ''
       && cardAttr3 !== ''
-      && (Number(cardAttr1) >= 0 && Number(cardAttr1) <= maxInput)
-      && (Number(cardAttr2) >= 0 && Number(cardAttr2) <= maxInput)
-      && (Number(cardAttr3) >= 0 && Number(cardAttr3) <= maxInput)
-      && Number(cardAttr1) + Number(cardAttr2) + Number(cardAttr3) <= max
+      && (Number(cardAttr1) >= 0 && Number(cardAttr1) <= maxAttr)
+      && (Number(cardAttr2) >= 0 && Number(cardAttr2) <= maxAttr)
+      && (Number(cardAttr3) >= 0 && Number(cardAttr3) <= maxAttr)
+      && Number(cardAttr1) + Number(cardAttr2) + Number(cardAttr3) <= sumOfAttr
     );
 
-    this.setState({ isSaveButtonDisabled: !validation });
+    this.setState({ isSaveButtonDisabled: !validar });
   }
 
   render() {
