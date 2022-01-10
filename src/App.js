@@ -27,7 +27,37 @@ class App extends React.Component {
   handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value,
-    });
+    }, this.handleValidate);
+  }
+
+  handleValidate = () => {
+    const maxInput = 90;
+    const max = 210;
+    const {
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare,
+    } = this.state;
+
+    const validation = (
+      cardName !== ''
+      && cardDescription !== ''
+      && cardImage !== ''
+      && cardRare !== ''
+      && cardAttr1 !== ''
+      && cardAttr2 !== ''
+      && cardAttr3 !== ''
+      && (Number(cardAttr1) >= 0 && Number(cardAttr1) <= maxInput)
+      && (Number(cardAttr2) >= 0 && Number(cardAttr2) <= maxInput)
+      && (Number(cardAttr3) >= 0 && Number(cardAttr3) <= maxInput)
+      && Number(cardAttr1) + Number(cardAttr2) + Number(cardAttr3) <= max
+    );
+
+    this.setState({ isSaveButtonDisabled: !validation });
   }
 
   render() {
