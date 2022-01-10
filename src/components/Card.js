@@ -36,7 +36,8 @@ class Card extends React.Component {
         </p>
         {cardTrunfo && <p data-testid="trunfo-card">Super Trunfo</p>}
         {/* Aqui existe uma verificação se a prop cardTrunfo for TRUE,
-        esse <p> será exibido. Caso não, ele é ignorado */}
+        esse <p> será exibido. Caso não, ele é ignorado 
+        Source: https://pt-br.reactjs.org/docs/conditional-rendering.html */}
       </>
 
     );
