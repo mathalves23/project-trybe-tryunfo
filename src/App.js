@@ -91,6 +91,7 @@ class App extends React.Component {
     const noMaxAllowed = cardAtt.every((attr) => attr >= 0 && attr <= maxAttr);
     const okForm = noEmptyAllowed && noMaxAllowed && sumOfCardAtt <= maxSumAttr;
     this.setState({ isSaveButtonDisabled: !okForm });
+    // Função resolvida com a ajuda das colegas Nicole Calderari e Juliane Alves
   }
 
   removeCard(name) {
@@ -101,6 +102,7 @@ class App extends React.Component {
       arrayCards: cardsList,
       hasTrunfo: temTrunfo,
     }));
+    // Função resolvida com a ajuda das colegas Nicole Calderari e Juliane Alves
   }
 
   render() {
