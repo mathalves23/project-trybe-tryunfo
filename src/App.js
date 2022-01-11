@@ -23,17 +23,15 @@ class App extends React.Component {
       isSaveButtonDisabled: true,
       arrayCards: [],
     };
-    this.handleChange = this.handleChange.bind(this);
     this.saveCard = this.saveCard.bind(this);
   }
 
   // Desestruturado:
-  handleChange = ({ target: { name, value } }) => {
+  handleInputChange = ({ target: { name, value } }) => {
     this.setState({
       [name]: value,
     },
-    this.formValidation,
-    this.saveCard);
+    this.formValidation);
   }
 
   saveCard() {
@@ -47,6 +45,7 @@ class App extends React.Component {
       cardImage,
       cardRare,
       cardTrunfo,
+      hasTrunfo,
     } = this.state;
     const card = {
       cardName,
@@ -68,6 +67,7 @@ class App extends React.Component {
       cardImage: '',
       cardRare: 'normal',
       cardTrunfo: false,
+      hasTrunfo: cardTrunfo || hasTrunfo,
     });
   }
 
@@ -91,6 +91,16 @@ class App extends React.Component {
     const noMaxAllowed = cardAtt.every((attr) => attr >= 0 && attr <= maxAttr);
     const okForm = noEmptyAllowed && noMaxAllowed && sumOfCardAtt <= maxSumAttr;
     this.setState({ isSaveButtonDisabled: !okForm });
+  }
+
+  removeCard(name) {
+    const { arrayCards } = this.state;
+    const cardsList = arrayCards.filter(({ cardName }) => cardName !== name);
+    const temTrunfo = cardsList.some(({ cardTrunfo }) => cardTrunfo);
+    this.setState(({
+      arrayCards: cardsList,
+      hasTrunfo: temTrunfo,
+    }));
   }
 
   render() {
@@ -124,7 +134,7 @@ class App extends React.Component {
             cardTrunfo={ cardTrunfo }
             hasTrunfo={ hasTrunfo }
             isSaveButtonDisabled={ isSaveButtonDisabled }
-            onInputChange={ this.handleChange }
+            onInputChange={ this.handleInputChange }
             onSaveButtonClick={ this.saveCard }
           />
         </section>
@@ -155,6 +165,13 @@ class App extends React.Component {
                 cardRare={ card.cardRare }
                 cardTrunfo={ card.cardTrunfo }
               />
+              <button
+                data-testid="delete-button"
+                onClick={ () => this.removeCard(card.cardName) }
+                type="button"
+              >
+                Excluir
+              </button>
             </div>
           ))}
         </section>

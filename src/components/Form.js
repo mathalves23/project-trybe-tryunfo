@@ -12,7 +12,7 @@ class Form extends React.Component {
       cardImage,
       cardRare,
       cardTrunfo,
-      // hasTrunfo,
+      hasTrunfo,
       isSaveButtonDisabled,
       onInputChange,
       onSaveButtonClick } = this.props;
@@ -100,18 +100,25 @@ class Form extends React.Component {
               <option value="muito raro">muito raro</option>
             </select>
           </label>
-          <label htmlFor="trunfo-input">
-            Super Trybe Trunfo
-            <input
-              name="cardTrunfo"
-              type="checkbox"
-              id="trunfo-input"
-              data-testid="trunfo-input"
-              checked={ cardTrunfo }
-              onChange={ onInputChange }
-            />
-          </label>
           {/* Source: https://pt-br.reactjs.org/docs/handling-events.html */}
+          <div>
+            <label htmlFor="trunfo-input">
+              {hasTrunfo ? (<span> Você já tem um Super Trunfo em seu baralho. </span>)
+                : (
+                  <>
+                    <input
+                      type="checkbox"
+                      name="cardTrunfo"
+                      id="trunfo-input"
+                      data-testid={ hasTrunfo ? '' : 'trunfo-input' }
+                      onChange={ onInputChange }
+                      checked={ cardTrunfo }
+                      // className={ hasTrunfo ? 'd-none' : 'tryunfo' }
+                    />
+                    <span>Super Trunfo</span>
+                  </>)}
+            </label>
+          </div>
           <button
             type="button"
             data-testid="save-button"
@@ -135,7 +142,7 @@ Form.propTypes = {
   cardImage: PropTypes.string.isRequired,
   cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,
-  // hasTrunfo: PropTypes.bool.isRequired,
+  hasTrunfo: PropTypes.bool.isRequired,
   isSaveButtonDisabled: PropTypes.bool.isRequired,
   onInputChange: PropTypes.func.isRequired,
   onSaveButtonClick: PropTypes.func.isRequired };
