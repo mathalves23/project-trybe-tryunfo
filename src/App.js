@@ -47,7 +47,6 @@ class App extends React.Component {
       cardImage,
       cardRare,
       cardTrunfo,
-      hasTrunfo,
     } = this.state;
     const card = {
       cardName,
@@ -69,7 +68,7 @@ class App extends React.Component {
       cardImage: '',
       cardRare: 'normal',
       cardTrunfo: false,
-      hasTrunfo: cardTrunfo || hasTrunfo,
+
     });
   }
 
