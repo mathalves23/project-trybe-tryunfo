@@ -38,9 +38,7 @@ class App extends React.Component {
     }, this.formValidation);
   }
 
-  formValidation = () => {
-    const sumOfAttr = 210;
-    const maxAttr = 90;
+  formValidation() {
     const {
       cardName,
       cardDescription,
@@ -51,21 +49,15 @@ class App extends React.Component {
       cardRare,
     } = this.state;
 
-    const validation = (
-      cardName !== ''
-      && cardDescription !== ''
-      && cardImage !== ''
-      && cardRare !== ''
-      && cardAttr1 !== ''
-      && cardAttr2 !== ''
-      && cardAttr3 !== ''
-      && (Number(cardAttr1) >= 0 && Number(cardAttr1) <= maxAttr)
-      && (Number(cardAttr2) >= 0 && Number(cardAttr2) <= maxAttr)
-      && (Number(cardAttr3) >= 0 && Number(cardAttr3) <= maxAttr)
-      && Number(cardAttr1) + Number(cardAttr2) + Number(cardAttr3) <= sumOfAttr
-    );
-
-    this.setState({ isSaveButtonDisabled: !validation });
+    const maxSumAttr = 210;
+    const maxAttr = 90;
+    const noEmpty = [cardName, cardDescription, cardImage, cardRare];
+    const cardAtt = [cardAttr1, cardAttr2, cardAttr3];
+    const sumOfCardAtt = Number(cardAttr1) + Number(cardAttr2) + Number(cardAttr3);
+    const noEmptyAllowed = noEmpty.every((word) => word);
+    const noMaxAllowed = cardAtt.every((attr) => attr >= 0 && attr <= maxAttr);
+    const okForm = noEmptyAllowed && noMaxAllowed && sumOfCardAtt <= maxSumAttr;
+    this.setState({ isSaveButtonDisabled: !okForm });
   }
 
   render() {
