@@ -4,6 +4,14 @@ body {
 
 form {
   align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+#form {
+  align-items: center;
   background-color: red;
   display: flex;
   flex-direction: column;
@@ -18,4 +26,23 @@ h1 {
 
 label {
   margin-bottom: 30px;
+}
+
+#card {
+  align-items: center;
+  background-color: green;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 30px;
+  padding: 20px;
+}
+#list {
+  align-items: center;
+  background-color: blue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 30px;
+  padding: 20px;
 }
