@@ -21,6 +21,7 @@ class App extends React.Component {
       cardTrunfo: false,
       hasTrunfo: false,
       isSaveButtonDisabled: true,
+      arrayCards: [],
     };
   }
 
@@ -58,6 +59,43 @@ class App extends React.Component {
     const noMaxAllowed = cardAtt.every((attr) => attr >= 0 && attr <= maxAttr);
     const okForm = noEmptyAllowed && noMaxAllowed && sumOfCardAtt <= maxSumAttr;
     this.setState({ isSaveButtonDisabled: !okForm });
+  }
+
+  saveCard() {
+    const {
+      arrayCards,
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare,
+      cardTrunfo,
+    } = this.state;
+    const card = {
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare,
+      cardTrunfo,
+    };
+    this.setState({
+      arrayCards: [...arrayCards, card],
+      cardName: '',
+      cardDescription: '',
+      cardAttr1: '0',
+      cardAttr2: '0',
+      cardAttr3: '0',
+      cardImage: '',
+      cardRare: '',
+      cardTrunfo: false,
+      hasTrunfo: false,
+      isSaveButtonDisabled: true,
+    });
   }
 
   render() {
