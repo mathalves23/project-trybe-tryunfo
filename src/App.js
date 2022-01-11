@@ -111,7 +111,7 @@ class App extends React.Component {
     return (
       <div>
         <h1> SUPER TRYUNFO </h1>
-        <section id="form">
+        <section className="form">
           <h2> Adicionar nova carta </h2>
           <Form
             cardName={ cardName }
@@ -128,7 +128,7 @@ class App extends React.Component {
             onSaveButtonClick={ this.saveCard }
           />
         </section>
-        <section id="card">
+        <section className="card">
           <h2>Carta: </h2>
           <Card
             cardName={ cardName }
@@ -141,7 +141,7 @@ class App extends React.Component {
             cardTrunfo={ cardTrunfo }
           />
         </section>
-        <section id="list">
+        <section className="list">
           <h2>Lista de cartas: </h2>
           { arrayCards.map((card) => (
             <div key={ card.cardName }>
